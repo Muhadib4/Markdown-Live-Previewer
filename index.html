@@ -18,6 +18,7 @@
         </a>
         <span class="free-badge">Gratis • Tanpa login</span>
         <div class="appearance-actions">
+            <button id="sessionTimer" class="appearance-button timer-button" type="button" title="Jeda atau lanjutkan timer sesi">⏱ <span id="timerText">00:00</span></button>
             <button id="darkModeButton" class="appearance-button" type="button" aria-label="Ganti mode warna">🌙 <span>Gelap</span></button>
             <button id="openThemesButton" class="appearance-button primary" type="button">🎨 <span id="activeThemeName">Minimalism</span> ▾</button>
         </div>
@@ -125,11 +126,12 @@
             <button id="closeThemesButton" class="close-themes" type="button" aria-label="Tutup">×</button>
         </div>
         <label class="theme-search">⌕ <input id="themeSearch" type="search" placeholder="Cari tema, mis. Cyberpunk..."></label>
+        <label class="theme-select-label"><span>Pilih cepat</span><select id="themeQuickSelect" aria-label="Pilih tema"></select></label>
         <div id="themeCategories" class="theme-categories">
             <button class="active" data-category="all">Semua</button><button data-category="clean">Clean</button>
             <button data-category="bold">Bold</button><button data-category="future">Future</button>
             <button data-category="retro">Retro</button><button data-category="fantasy">Fantasy</button>
-            <button data-category="nature">Nature</button><button data-category="art">Art</button>
+            <button data-category="nature">Nature</button>
         </div>
         <div id="themeGrid" class="theme-grid"></div>
     </aside>
