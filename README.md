@@ -17,8 +17,8 @@ Editor Markdown yang sederhana, jelas, dan ramah untuk pengguna pemula. Pengguna
 - Tampilan responsif untuk desktop dan HP
 - Sanitasi HTML menggunakan DOMPurify
 - Dark mode yang tersimpan otomatis
-- 50 tema visual dengan pencarian dan filter kategori
-- Sejumlah tema mengubah layout, font, sudut, bayangan, dan karakter komponen
+- 12 tema pilihan dengan pencarian, dropdown cepat, dan filter kategori
+- Setiap tema mengubah layout, card shape, border, shadow, font, spacing, button, navbar, timer, modal, dropdown, animation, background, dan icon style
 
 ## Cara menggunakan
 
