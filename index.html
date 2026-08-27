@@ -3,40 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Editor Markdown sederhana dengan live preview.">
+    <meta name="description" content="Belajar dan menulis Markdown dengan preview langsung yang mudah digunakan.">
     <title>Markdown Live Previewer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="app-header">
-        <div>
-            <h1>Markdown Live Previewer</h1>
-            <p>Tulis Markdown dan lihat hasilnya secara langsung.</p>
-        </div>
-        <button id="clearButton" type="button">Bersihkan</button>
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="Markdown Live Previewer">
+            <span class="brand-icon">M↓</span>
+            <span>
+                <strong>Markdown Live Previewer</strong>
+                <small>Editor Markdown untuk pemula</small>
+            </span>
+        </a>
+        <span class="free-badge">Gratis • Tanpa login</span>
     </header>
 
-    <main class="workspace">
-        <section class="panel">
-            <div class="panel-title">
-                <h2>Editor</h2>
-                <span>Markdown</span>
+    <main class="page">
+        <section class="intro" aria-labelledby="introTitle">
+            <div>
+                <p class="eyebrow">MUDAH DIGUNAKAN</p>
+                <h1 id="introTitle">Tulis Markdown tanpa takut salah</h1>
+                <p>Ketik di kotak sebelah kiri. Hasil yang sudah rapi akan langsung muncul di sebelah kanan.</p>
             </div>
-            <textarea id="markdownInput" aria-label="Editor Markdown" spellcheck="false"></textarea>
+
+            <ol class="steps" aria-label="Cara menggunakan">
+                <li><span>1</span><div><strong>Tulis teks</strong><small>Masukkan tulisan di editor</small></div></li>
+                <li><span>2</span><div><strong>Pilih format</strong><small>Gunakan tombol yang tersedia</small></div></li>
+                <li><span>3</span><div><strong>Lihat hasil</strong><small>Preview berubah otomatis</small></div></li>
+            </ol>
         </section>
 
-        <section class="panel">
-            <div class="panel-title">
-                <h2>Preview</h2>
-                <span>Live</span>
+        <section class="top-actions" aria-label="Aksi dokumen">
+            <div>
+                <button id="exampleButton" class="button secondary" type="button">Muat contoh</button>
+                <button id="copyButton" class="button secondary" type="button">Salin Markdown</button>
+                <button id="downloadButton" class="button secondary" type="button">Unduh .md</button>
             </div>
-            <article id="preview" class="preview"></article>
+            <button id="clearButton" class="button danger" type="button">Bersihkan semua</button>
         </section>
+
+        <section class="workspace" aria-label="Editor dan preview Markdown">
+            <section class="panel editor-panel">
+                <div class="panel-header">
+                    <div class="panel-heading">
+                        <span class="number">1</span>
+                        <div>
+                            <h2>Tulis di sini</h2>
+                            <p>Pilih teks, lalu tekan tombol format.</p>
+                        </div>
+                    </div>
+                    <span id="saveStatus" class="status">Tersimpan otomatis</span>
+                </div>
+
+                <div class="toolbar" role="toolbar" aria-label="Format Markdown">
+                    <button type="button" data-format="heading" title="Jadikan judul">Judul</button>
+                    <button type="button" data-format="bold" title="Jadikan teks tebal"><strong>Tebal</strong></button>
+                    <button type="button" data-format="italic" title="Jadikan teks miring"><em>Miring</em></button>
+                    <button type="button" data-format="list" title="Buat daftar">Daftar</button>
+                    <button type="button" data-format="link" title="Tambahkan tautan">Link</button>
+                    <button type="button" data-format="quote" title="Buat kutipan">Kutipan</button>
+                    <button type="button" data-format="code" title="Format sebagai kode">Kode</button>
+                </div>
+
+                <textarea
+                    id="markdownInput"
+                    aria-label="Tempat menulis Markdown"
+                    placeholder="Mulai menulis di sini...&#10;&#10;Contoh:&#10;# Judul catatan&#10;&#10;Ini adalah tulisan saya."
+                    spellcheck="true"
+                ></textarea>
+
+                <div class="editor-footer">
+                    <span id="wordCount">0 kata</span>
+                    <span id="characterCount">0 karakter</span>
+                </div>
+            </section>
+
+            <section class="panel preview-panel">
+                <div class="panel-header">
+                    <div class="panel-heading">
+                        <span class="number">2</span>
+                        <div>
+                            <h2>Hasil tulisan</h2>
+                            <p>Bagian ini berubah secara langsung.</p>
+                        </div>
+                    </div>
+                    <span class="live-badge"><i></i> Live preview</span>
+                </div>
+                <article id="preview" class="preview" aria-live="polite"></article>
+            </section>
+        </section>
+
+        <details class="guide" open>
+            <summary>Panduan singkat Markdown</summary>
+            <p>Tidak perlu menghafal semuanya. Kamu juga bisa memakai tombol format di atas editor.</p>
+            <div class="guide-grid">
+                <div><code># Judul</code><span>Membuat judul besar</span></div>
+                <div><code>**Tebal**</code><span>Membuat teks tebal</span></div>
+                <div><code>*Miring*</code><span>Membuat teks miring</span></div>
+                <div><code>- Item</code><span>Membuat daftar</span></div>
+                <div><code>[Teks](URL)</code><span>Membuat tautan</span></div>
+                <div><code>&gt; Kutipan</code><span>Membuat kutipan</span></div>
+            </div>
+        </details>
     </main>
 
-    <footer>
-        Dibuat dengan HTML, CSS, dan JavaScript.
+    <footer class="site-footer">
+        Tulisan tersimpan hanya di browser perangkatmu.
     </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
