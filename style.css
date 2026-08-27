@@ -1,0 +1,180 @@
+:root {
+    color-scheme: dark;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: #0f172a;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 5vw;
+    border-bottom: 1px solid #334155;
+    background: #111827;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+.app-header h1 {
+    margin-bottom: 6px;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.app-header p {
+    margin-bottom: 0;
+    color: #94a3b8;
+}
+
+button {
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 10px 16px;
+    background: #1e293b;
+    color: #f8fafc;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #334155;
+}
+
+.workspace {
+    width: min(1400px, 100%);
+    margin: 0 auto;
+    padding: 24px 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+}
+
+.panel {
+    min-height: 65vh;
+    overflow: hidden;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: #111827;
+}
+
+.panel-title {
+    height: 54px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #334155;
+}
+
+.panel-title h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.panel-title span {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+textarea,
+.preview {
+    width: 100%;
+    height: calc(65vh - 54px);
+    padding: 20px;
+    overflow: auto;
+}
+
+textarea {
+    border: 0;
+    outline: 0;
+    resize: none;
+    background: transparent;
+    color: #e2e8f0;
+    font: 15px/1.7 "Cascadia Code", Consolas, monospace;
+}
+
+.preview {
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.preview > :first-child {
+    margin-top: 0;
+}
+
+.preview a {
+    color: #60a5fa;
+}
+
+.preview blockquote {
+    margin-left: 0;
+    padding-left: 16px;
+    border-left: 4px solid #3b82f6;
+    color: #cbd5e1;
+}
+
+.preview code {
+    border-radius: 5px;
+    padding: 2px 6px;
+    background: #1e293b;
+}
+
+.preview pre {
+    overflow-x: auto;
+    border-radius: 8px;
+    padding: 16px;
+    background: #020617;
+}
+
+.preview pre code {
+    padding: 0;
+    background: transparent;
+}
+
+.preview img {
+    max-width: 100%;
+}
+
+.preview hr {
+    border: 0;
+    border-top: 1px solid #334155;
+}
+
+footer {
+    padding: 18px;
+    text-align: center;
+    color: #64748b;
+}
+
+@media (max-width: 800px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        min-height: 50vh;
+    }
+
+    textarea,
+    .preview {
+        height: calc(50vh - 54px);
+    }
+}
