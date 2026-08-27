@@ -1,155 +1,141 @@
 <!DOCTYPE html>
-<html lang="id" data-mode="light">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Editor Markdown modern dengan live preview, dark mode, dan 50 pilihan tema.">
-    <title>Markdown Studio</title>
+    <meta name="description" content="Belajar dan menulis Markdown dengan preview langsung yang mudah digunakan.">
+    <title>Markdown Live Previewer</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body data-layout="minimal">
-    <div class="ambient-bg" aria-hidden="true"><i></i><i></i><i></i></div>
-
+<body>
     <header class="site-header">
-        <a class="brand" href="#" aria-label="Markdown Studio">
-            <span class="brand-icon">M<span>↓</span></span>
-            <span class="brand-copy">
-                <strong>Markdown Studio</strong>
-                <small>Write clearly. Preview instantly.</small>
+        <a class="brand" href="#" aria-label="Markdown Live Previewer">
+            <span class="brand-icon">M↓</span>
+            <span>
+                <strong>Markdown Live Previewer</strong>
+                <small>Editor Markdown untuk pemula</small>
             </span>
         </a>
-
-        <nav class="header-actions" aria-label="Pengaturan tampilan">
-            <button id="themeButton" class="control-button theme-trigger" type="button">
-                <span class="theme-dot" aria-hidden="true"></span>
-                <span>
-                    <small>Tema</small>
-                    <strong id="currentThemeName">Minimalism</strong>
-                </span>
-                <b aria-hidden="true">⌄</b>
-            </button>
-            <button id="modeButton" class="control-button mode-button" type="button" aria-label="Aktifkan dark mode">
-                <span id="modeIcon" aria-hidden="true">☾</span>
-                <span id="modeLabel">Dark</span>
-            </button>
-        </nav>
+        <span class="free-badge">Gratis • Tanpa login</span>
+        <div class="appearance-actions">
+            <button id="darkModeButton" class="appearance-button" type="button" aria-label="Ganti mode warna">🌙 <span>Gelap</span></button>
+            <button id="openThemesButton" class="appearance-button primary" type="button">🎨 <span id="activeThemeName">Minimalism</span> ▾</button>
+        </div>
     </header>
 
     <main class="page">
-        <section class="hero">
-            <div class="hero-copy">
-                <span class="eyebrow">MARKDOWN, TANPA RIBET</span>
-                <h1>Tulis ide. <em>Lihat hasilnya</em> seketika.</h1>
-                <p>Editor yang mudah untuk pemula, tetapi tetap nyaman untuk membuat catatan, dokumentasi, dan README GitHub.</p>
-                <div class="hero-badges">
-                    <span>50 tema</span>
-                    <span>Dark mode</span>
-                    <span>Auto-save</span>
-                    <span>Tanpa login</span>
-                </div>
+        <section class="intro" aria-labelledby="introTitle">
+            <div>
+                <p class="eyebrow">MUDAH DIGUNAKAN</p>
+                <h1 id="introTitle">Tulis Markdown tanpa takut salah</h1>
+                <p>Ketik di kotak sebelah kiri. Hasil yang sudah rapi akan langsung muncul di sebelah kanan.</p>
             </div>
 
             <ol class="steps" aria-label="Cara menggunakan">
-                <li><span>01</span><div><strong>Tulis</strong><small>Masukkan teks di editor</small></div></li>
-                <li><span>02</span><div><strong>Format</strong><small>Pakai tombol, tak perlu hafal</small></div></li>
-                <li><span>03</span><div><strong>Selesai</strong><small>Salin atau unduh file</small></div></li>
+                <li><span>1</span><div><strong>Tulis teks</strong><small>Masukkan tulisan di editor</small></div></li>
+                <li><span>2</span><div><strong>Pilih format</strong><small>Gunakan tombol yang tersedia</small></div></li>
+                <li><span>3</span><div><strong>Lihat hasil</strong><small>Preview berubah otomatis</small></div></li>
             </ol>
         </section>
 
-        <section class="action-bar" aria-label="Aksi dokumen">
-            <div class="action-group">
-                <button id="exampleButton" class="button" type="button"><span>✦</span> Muat contoh</button>
-                <button id="copyButton" class="button" type="button"><span>▣</span> Salin Markdown</button>
-                <button id="downloadButton" class="button primary" type="button"><span>↓</span> Unduh .md</button>
+        <section class="top-actions" aria-label="Aksi dokumen">
+            <div>
+                <button id="exampleButton" class="button secondary" type="button">Muat contoh</button>
+                <button id="copyButton" class="button secondary" type="button">Salin Markdown</button>
+                <button id="downloadButton" class="button secondary" type="button">Unduh .md</button>
             </div>
-            <button id="clearButton" class="button danger" type="button">Bersihkan</button>
+            <button id="clearButton" class="button danger" type="button">Bersihkan semua</button>
         </section>
 
         <section class="workspace" aria-label="Editor dan preview Markdown">
             <section class="panel editor-panel">
                 <div class="panel-header">
                     <div class="panel-heading">
-                        <span class="panel-number">1</span>
-                        <div><h2>Editor</h2><p>Tulis atau tempel Markdown di sini</p></div>
+                        <span class="number">1</span>
+                        <div>
+                            <h2>Tulis di sini</h2>
+                            <p>Pilih teks, lalu tekan tombol format.</p>
+                        </div>
                     </div>
-                    <span id="saveStatus" class="save-status"><i></i> Tersimpan</span>
+                    <span id="saveStatus" class="status">Tersimpan otomatis</span>
                 </div>
 
                 <div class="toolbar" role="toolbar" aria-label="Format Markdown">
-                    <button type="button" data-format="heading" title="Judul"><b>H1</b><span>Judul</span></button>
-                    <button type="button" data-format="bold" title="Tebal"><b>B</b><span>Tebal</span></button>
-                    <button type="button" data-format="italic" title="Miring"><i>I</i><span>Miring</span></button>
-                    <button type="button" data-format="strike" title="Coret"><s>S</s><span>Coret</span></button>
-                    <span class="toolbar-divider"></span>
-                    <button type="button" data-format="list" title="Daftar">≡<span>Daftar</span></button>
-                    <button type="button" data-format="checklist" title="Checklist">☑<span>Checklist</span></button>
-                    <button type="button" data-format="link" title="Link">↗<span>Link</span></button>
-                    <button type="button" data-format="quote" title="Kutipan">❞<span>Kutipan</span></button>
-                    <button type="button" data-format="code" title="Kode">&lt;/&gt;<span>Kode</span></button>
+                    <button type="button" data-format="heading" title="Jadikan judul">Judul</button>
+                    <button type="button" data-format="bold" title="Jadikan teks tebal"><strong>Tebal</strong></button>
+                    <button type="button" data-format="italic" title="Jadikan teks miring"><em>Miring</em></button>
+                    <button type="button" data-format="list" title="Buat daftar">Daftar</button>
+                    <button type="button" data-format="link" title="Tambahkan tautan">Link</button>
+                    <button type="button" data-format="quote" title="Buat kutipan">Kutipan</button>
+                    <button type="button" data-format="code" title="Format sebagai kode">Kode</button>
                 </div>
 
-                <textarea id="markdownInput" aria-label="Editor Markdown" placeholder="Mulai menulis di sini..." spellcheck="true"></textarea>
+                <textarea
+                    id="markdownInput"
+                    aria-label="Tempat menulis Markdown"
+                    placeholder="Mulai menulis di sini...&#10;&#10;Contoh:&#10;# Judul catatan&#10;&#10;Ini adalah tulisan saya."
+                    spellcheck="true"
+                ></textarea>
 
                 <div class="editor-footer">
-                    <span class="shortcut-tip">Tips: <kbd>Ctrl</kbd> + <kbd>B</kbd> untuk tebal</span>
-                    <div><span id="wordCount">0 kata</span><span id="characterCount">0 karakter</span></div>
+                    <span id="wordCount">0 kata</span>
+                    <span id="characterCount">0 karakter</span>
                 </div>
             </section>
 
             <section class="panel preview-panel">
                 <div class="panel-header">
                     <div class="panel-heading">
-                        <span class="panel-number">2</span>
-                        <div><h2>Preview</h2><p>Hasil tulisan yang sudah diformat</p></div>
+                        <span class="number">2</span>
+                        <div>
+                            <h2>Hasil tulisan</h2>
+                            <p>Bagian ini berubah secara langsung.</p>
+                        </div>
                     </div>
-                    <span class="live-badge"><i></i> LIVE</span>
+                    <span class="live-badge"><i></i> Live preview</span>
                 </div>
                 <article id="preview" class="preview" aria-live="polite"></article>
             </section>
         </section>
 
-        <details class="guide">
-            <summary><span>?</span> Baru mengenal Markdown? Buka panduan singkat</summary>
-            <div class="guide-content">
-                <p>Pilih teks lalu tekan tombol toolbar, atau tulis simbolnya secara manual.</p>
-                <div class="guide-grid">
-                    <div><code># Judul</code><span>Judul besar</span></div>
-                    <div><code>**Tebal**</code><span>Teks tebal</span></div>
-                    <div><code>*Miring*</code><span>Teks miring</span></div>
-                    <div><code>- Item</code><span>Daftar</span></div>
-                    <div><code>[Teks](URL)</code><span>Tautan</span></div>
-                    <div><code>&gt; Kutipan</code><span>Kutipan</span></div>
-                </div>
+        <details class="guide" open>
+            <summary>Panduan singkat Markdown</summary>
+            <p>Tidak perlu menghafal semuanya. Kamu juga bisa memakai tombol format di atas editor.</p>
+            <div class="guide-grid">
+                <div><code># Judul</code><span>Membuat judul besar</span></div>
+                <div><code>**Tebal**</code><span>Membuat teks tebal</span></div>
+                <div><code>*Miring*</code><span>Membuat teks miring</span></div>
+                <div><code>- Item</code><span>Membuat daftar</span></div>
+                <div><code>[Teks](URL)</code><span>Membuat tautan</span></div>
+                <div><code>&gt; Kutipan</code><span>Membuat kutipan</span></div>
             </div>
         </details>
     </main>
 
     <footer class="site-footer">
-        <strong>Markdown Studio</strong>
-        <span>Draft tersimpan lokal di browsermu.</span>
+        Tulisan tersimpan hanya di browser perangkatmu.
     </footer>
-
-    <dialog id="themeDialog" class="theme-dialog">
-        <div class="dialog-shell">
-            <header class="dialog-header">
-                <div><span class="eyebrow">PERSONALISASI</span><h2>Pilih gaya favoritmu</h2><p>50 tema dengan warna dan karakter visual berbeda.</p></div>
-                <button id="closeThemeButton" class="icon-button" type="button" aria-label="Tutup pemilih tema">×</button>
-            </header>
-            <div class="theme-tools">
-                <label class="search-box"><span>⌕</span><input id="themeSearch" type="search" placeholder="Cari tema, misalnya Cyberpunk..." autocomplete="off"></label>
-                <span id="themeResultCount">50 tema</span>
-            </div>
-            <div id="categoryFilters" class="category-filters" aria-label="Kategori tema"></div>
-            <div id="themeGrid" class="theme-grid"></div>
-            <div id="emptyThemes" class="empty-themes" hidden>Tema tidak ditemukan. Coba kata lain.</div>
-        </div>
-    </dialog>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+    <div id="themeOverlay" class="theme-overlay" aria-hidden="true"></div>
+    <aside id="themeDrawer" class="theme-drawer" aria-hidden="true" aria-label="Pilihan tema">
+        <div class="theme-drawer-head">
+            <div><p class="eyebrow">PERSONALISASI</p><h2>Pilih suasana</h2><p>50 gaya visual untuk ruang menulismu.</p></div>
+            <button id="closeThemesButton" class="close-themes" type="button" aria-label="Tutup">×</button>
+        </div>
+        <label class="theme-search">⌕ <input id="themeSearch" type="search" placeholder="Cari tema, mis. Cyberpunk..."></label>
+        <div id="themeCategories" class="theme-categories">
+            <button class="active" data-category="all">Semua</button><button data-category="clean">Clean</button>
+            <button data-category="bold">Bold</button><button data-category="future">Future</button>
+            <button data-category="retro">Retro</button><button data-category="fantasy">Fantasy</button>
+            <button data-category="nature">Nature</button><button data-category="art">Art</button>
+        </div>
+        <div id="themeGrid" class="theme-grid"></div>
+    </aside>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
-    <script src="themes.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
