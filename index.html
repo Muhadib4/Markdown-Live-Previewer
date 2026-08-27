@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Editor Markdown sederhana dengan live preview.">
+    <title>Markdown Live Previewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div>
+            <h1>Markdown Live Previewer</h1>
+            <p>Tulis Markdown dan lihat hasilnya secara langsung.</p>
+        </div>
+        <button id="clearButton" type="button">Bersihkan</button>
+    </header>
+
+    <main class="workspace">
+        <section class="panel">
+            <div class="panel-title">
+                <h2>Editor</h2>
+                <span>Markdown</span>
+            </div>
+            <textarea id="markdownInput" aria-label="Editor Markdown" spellcheck="false"></textarea>
+        </section>
+
+        <section class="panel">
+            <div class="panel-title">
+                <h2>Preview</h2>
+                <span>Live</span>
+            </div>
+            <article id="preview" class="preview"></article>
+        </section>
+    </main>
+
+    <footer>
+        Dibuat dengan HTML, CSS, dan JavaScript.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
