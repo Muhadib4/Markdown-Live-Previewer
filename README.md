@@ -1,95 +1,48 @@
-# Markdown Studio
+# Markdown Live Previewer
 
-Markdown Live Previewer yang mudah digunakan, responsif, dan dapat dipersonalisasi dengan **50 tema** serta **light/dark mode**.
+Editor Markdown yang sederhana, jelas, dan ramah untuk pengguna pemula. Pengguna dapat menulis, memilih format melalui tombol, dan melihat hasilnya secara langsung tanpa instalasi.
 
-## Fitur utama
+## Fitur
 
-- Live preview Markdown
-- 50 tema visual dengan palet dan karakter desain berbeda
-- Light mode dan dark mode pada seluruh tema
-- Pencarian dan filter kategori tema
-- Pilihan tema serta mode tersimpan otomatis
-- Toolbar: judul, tebal, miring, coret, daftar, checklist, link, kutipan, dan kode
-- Draft tersimpan otomatis di browser
+- Petunjuk penggunaan dalam 3 langkah
+- Live preview saat mengetik
+- Toolbar format: judul, tebal, miring, daftar, link, kutipan, dan kode
+- Contoh Markdown siap digunakan
+- Penyimpanan draft otomatis di browser
 - Penghitung kata dan karakter
-- Salin Markdown dan unduh file `.md`
+- Salin tulisan Markdown
+- Unduh tulisan sebagai file `.md`
+- Konfirmasi sebelum mengganti atau menghapus tulisan
+- Panduan sintaks Markdown singkat
+- Tampilan responsif untuk desktop dan HP
 - Sanitasi HTML menggunakan DOMPurify
-- Responsif untuk desktop, tablet, dan HP
-- Dukungan aksesibilitas dan reduced motion
-
-## Daftar tema
-
-1. Minimalism
-2. Ultra Minimalism
-3. Maximalism
-4. Controlled Maximalism
-5. Brutalism
-6. Neo-Brutalism
-7. Bento Grid
-8. Masonry
-9. Swiss Style
-10. Editorial
-11. Magazine
-12. Glassmorphism
-13. Liquid Glass
-14. Neumorphism
-15. Claymorphism
-16. Flat Design
-17. Material Design
-18. Aurora
-19. Gradient Mesh
-20. Cyberpunk
-21. Sci-Fi HUD
-22. Holographic
-23. Terminal
-24. Retro Terminal
-25. Pixel / 8-bit
-26. Y2K
-27. Frutiger Aero
-28. Web 1.0
-29. Vaporwave
-30. Synthwave
-31. Dark Fantasy
-32. Medieval
-33. Gothic
-34. Arcane
-35. Celestial
-36. Abyss
-37. Organic
-38. Biophilic
-39. Eco Futurism
-40. Paper UI
-41. Scrapbook
-42. Hand-drawn
-43. Monochrome
-44. Luxury
-45. Industrial
-46. Bauhaus
-47. Memphis
-48. Art Deco
-49. Skeuomorphism
-50. Spatial / 3D UI
+- Dark mode yang tersimpan otomatis
+- 50 tema visual dengan pencarian dan filter kategori
+- Sejumlah tema mengubah layout, font, sudut, bayangan, dan karakter komponen
 
 ## Cara menggunakan
 
-1. Tulis pada panel **Editor**.
-2. Sorot teks dan pilih format melalui toolbar.
-3. Lihat hasilnya pada panel **Preview**.
-4. Klik pemilih tema di kanan atas untuk mencari tema.
-5. Gunakan tombol **Dark/Light** untuk mengganti mode.
-6. Salin Markdown atau unduh sebagai file `.md`.
+1. Tulis sesuatu pada bagian **Tulis di sini**.
+2. Sorot teks yang ingin diformat.
+3. Tekan tombol seperti **Tebal**, **Miring**, atau **Link**.
+4. Lihat hasilnya pada panel **Hasil tulisan**.
+5. Salin atau unduh tulisan jika sudah selesai.
+6. Gunakan tombol tema dan dark mode pada header untuk mengubah tampilan.
+
+Draft tersimpan otomatis pada browser yang sedang digunakan.
 
 ## Cara menjalankan
 
-1. Clone atau download repository.
-2. Buka `index.html` di browser.
-3. Tidak memerlukan `npm install` atau proses build.
+1. Clone atau download repository ini.
+2. Buka file `index.html` di browser.
+3. Tidak perlu menjalankan `npm install` atau proses build.
 
-Koneksi internet diperlukan untuk memuat Marked dan DOMPurify melalui CDN.
+Koneksi internet dibutuhkan untuk memuat library Marked dan DOMPurify melalui CDN.
 
-## Struktur
+## Teknologi
 
-- `index.html` — struktur aplikasi dan theme picker
-- `style.css` — desain responsif serta personalitas layout
-- `themes.js` — konfigurasi 50 tema
-- `script.js` — editor, preview, dark mode, tema, auto-save, copy, dan download
+- HTML
+- CSS
+- JavaScript
+- [Marked](https://marked.js.org/)
+- [DOMPurify](https://github.com/cure53/DOMPurify)
