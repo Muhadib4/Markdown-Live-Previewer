@@ -623,7 +623,8 @@ html[data-theme] .intro,html[data-theme] .panel,html[data-theme] .guide{border:v
 html[data-theme] .workspace{gap:var(--theme-gap)}
 html[data-theme] .button,html[data-theme] .toolbar button,html[data-theme] .appearance-button,html[data-theme] .theme-categories button{border:var(--stroke);border-radius:var(--button-shape);transition:transform .18s,box-shadow .18s,background .18s}
 html[data-theme] button:hover{transform:translateY(-2px)}
-html[data-theme] .theme-drawer{border-left:var(--stroke);border-radius:var(--modal-shape);animation:theme-panel .35s ease both}
+html[data-theme] .theme-drawer{border-left:var(--stroke);border-radius:var(--modal-shape)}
+html[data-theme] body.themes-open .theme-drawer{animation:theme-panel .35s ease both}
 html[data-theme] .theme-search{border:var(--stroke);border-radius:var(--button-shape)}
 html[data-theme] .theme-select-label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px;padding:10px 12px;border:var(--stroke);border-radius:var(--button-shape);background:var(--soft);font-size:.74rem;font-weight:700}
 html[data-theme] .theme-select-label select{min-width:190px;padding:8px 30px 8px 10px;border:var(--stroke);border-radius:var(--button-shape);background:var(--card);color:var(--ink);font:inherit}
